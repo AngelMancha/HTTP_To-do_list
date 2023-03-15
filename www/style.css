@@ -1,0 +1,7 @@
+
+/*tabla de tareas con cuadrícula y padding*/
+#tabla-tareas td{
+    border: 1px solid #000;
+    padding: 0.5em;
+    border-radius: 50px;
+}

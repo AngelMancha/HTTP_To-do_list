@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "fetch": "^1.1.0",
+    "node-fetch": "^3.3.1",
+    "unfetch": "^5.0.0"
+  }
+}

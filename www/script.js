@@ -6,25 +6,18 @@ let todos = [
     { "id": 3, "title": "Hacer 100 sentadillas", "done": true }
   ];
 
-const listaTareas = document.getElementById('lista-tareas');
+const tablaTareas = document.getElementById('tabla-tareas');
 
 displayTodos(); 
 
 function displayTodos() {
-    listaTareas.innerHTML = '';
+    tablaTareas.innerHTML = '';
     todos.forEach(function(tarea) {
-        const itemLista = document.createElement('li');
-    
-        // Agrega la clase "hecho" si la tarea está completada
-    // if (tarea.done) {
-        //  itemLista.classList.add('hecho');
-        //}
-    
-        // Agrega el texto de la tarea al elemento <li>
-        itemLista.textContent = tarea.title;
-    
-        // Agrega el elemento <li> al elemento HTML de la lista
-        listaTareas.appendChild(itemLista);
+        const fila = document.createElement('tr');
+        const celda = document.createElement('td');
+        celda.textContent = tarea.title;
+        fila.appendChild(celda);
+        tablaTareas.appendChild(fila);
     });
 }
 //función que añade una nueva tarea a la lista de tareas
@@ -38,4 +31,12 @@ function addTodo() {
     displayTodos();
     
   
+}
+
+//función que elimina una tarea en concreto de la lista de tareas
+function deleteTodo(id) {
+    todos = todos.filter(function(todo) {
+        return todo.id !== id;
+    });
+    displayTodos();
 }

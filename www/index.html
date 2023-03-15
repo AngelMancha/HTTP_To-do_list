@@ -19,10 +19,16 @@
 
   <div id="main">
     <!--Mostramos la lista de tareas-->
-    <ul id="lista-tareas"> </ul>
+    <table>
+        <tbody id="tabla-tareas">
+        </tbody>
+      </table>
+      
     <button class="boton2" onclick=addTodo()>Comenzar</button>
     <!--Formulario para añadir tareas-->
       <input type="text" id="nombre_lista" placeholder="Añadir tarea">
+    <!--Botón para eliminar tareas-->
+        <button class="boton" onclick=deleteTodo(2)>Eliminar</button>
 
 
   </div>
