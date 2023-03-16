@@ -23,8 +23,12 @@ function displayTodos() {
 //función que añade una nueva tarea a la lista de tareas
 
 
-function addTodo() {
+const addTodo = () => {
     let newTodo = document.getElementById("nombre_lista");
+    //si el campo de texto está vacío, no se añade nada
+    if (newTodo.value === '') {
+        return;
+    }
     todos.push({ "id": todos.length + 1, "title": newTodo.value, "done": false });
 
     newTodo.value = '';
