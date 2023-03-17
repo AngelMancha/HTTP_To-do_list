@@ -13,6 +13,15 @@
 }
 
 
+/*input elegante y redondo*/
+#input_tarea {
+    border: 1px solid #000;
+    border-radius: 50px;
+    padding: 1em;
+    width: 100%;
+}
+
+
 #add-task-container {
     position: fixed;
     left: 15px;
@@ -26,8 +35,8 @@
   
   #fab-add {
      -webkit-user-select: none;
-    width: 64px;
-    height: 64px;
+    width: 50px;
+    height: 45px;
     border-radius: 50%;
     background-color: #f44336;
     color: white;
