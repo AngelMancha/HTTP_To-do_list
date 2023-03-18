@@ -9,19 +9,30 @@ const SPACE_THRESHOLD = 100;
 
 
 //lista de tareas
-let todos = [
-    { "id": 1, "title": "Aprender JavaScript", "done": false },
-    { "id": 2, "title": "Terminar los ejercicios", "done": false },
-    { "id": 3, "title": "Hacer 100 sentadillas", "done": true }
-  ];
+let todos = [];
 
 
 
 const tablaTareas = document.getElementById('tabla-tareas');
 
-displayTodos();
-detectar_swipe(); 
 
+
+const loadTasks =() => {  
+    fetch('/tasks/get')
+    .then(function(response) {
+        return response.json();
+    }).then(function(data) {
+        todos = data;
+        displayTodos();
+        detectar_swipe();
+    }).catch(function(err) {
+        console.log(err);
+    });
+    
+}
+
+
+loadTasks(); 
 
 
 function detectar_swipe(){
