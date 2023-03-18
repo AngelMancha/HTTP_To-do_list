@@ -22,6 +22,13 @@
 }
 
 
+.done {
+    text-decoration: line-through;
+    color: #ffffff;
+    background-color: rgb(11, 153, 59);
+  
+}
+
 #add-task-container {
     position: fixed;
     left: 15px;
