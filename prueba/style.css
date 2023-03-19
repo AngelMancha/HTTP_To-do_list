@@ -1,0 +1,99 @@
+/* Fuente */
+body {
+    font-family: "Roboto", sans-serif;
+  }
+  
+  /* Header */
+  .header {
+    background-color: #007aff;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .header h1 {
+    font-size: 24px;
+  }
+  
+  /* Main */
+  .main {
+    margin: 30px;
+  }
+  
+  /* Task table */
+  .task-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .task-table td {
+    padding: 16px;
+    border: 1px solid #ddd;
+    text-align: center;
+    border-radius: 8px;
+  }
+  
+  .task-table .done {
+    text-decoration: line-through;
+    color: #fff;
+    background-color: #4cd964;
+  }
+  
+  /* Add task */
+  .add-task-container {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .input-task {
+    flex-grow: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    margin-right: 16px;
+  }
+  
+  .add-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 56px;
+    border: none;
+    border-radius: 50%;
+    background-color: #007aff;
+    color: #fff;
+    font-size: 32px;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .add-button:hover {
+    background-color: #0062cc;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .add-button:focus {
+    outline: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 0px 0px 3px #007aff;
+  }
+  
+  /* Media queries */
+  @media screen and (max-width: 480px) {
+    .header h1 {
+      font-size: 20px;
+    }
+  
+    .add-task-container {
+      width: 100%;
+      padding: 0 16px;
+    }
+  }
+  

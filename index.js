@@ -39,9 +39,8 @@ const handleRequest = async (request, response) => {
         break;
       
       case "/tasks/get":
-        const tasks = await serveStaticFile("./tasks.json");
-        response.setHeader('Content-Type', 'application/json');
-        response.end(tasks);
+        content = await serveStaticFile("./tasks.json");
+        contentType = "application/json";
         break;
         
       default: 
