@@ -6,16 +6,6 @@ const TIME_THRESHOLD= 200;
 const SPACE_THRESHOLD = 100;
 
 
-
-
-//lista de tareas
-let todos = [];
-
-
-
-const tablaTareas = document.getElementById('tabla-tareas');
-
-
 //función que carga los datos del json a la variable todos
 const loadTasks =() => {  
     fetch('/tasks/get')
@@ -78,7 +68,7 @@ const toggleDone = (element) => {
 
 
 
-loadTasks(); 
+ 
 
 
 function detectar_swipe(){
@@ -160,6 +150,12 @@ function modal_off(){
     modal_container.style.display = "none";
 }
 
+//lista de tareas
+let todos = [];
+
+loadTasks();
+
+const tablaTareas = document.getElementById('tabla-tareas');
 
 const addButton = document.querySelector("#fab-add");
 
