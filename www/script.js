@@ -15,7 +15,7 @@ const loadTasks =() => {
         console.log(data);
         todos = data;
         displayTodos();
-        detectar_swipe();
+        detectar_gesto();
     }).catch(function(err) {
         console.log(err);
     });
@@ -34,7 +34,7 @@ const add = () => {
     newTodo.value = '';
 
     displayTodos();
-    detectar_swipe();
+    detectar_gesto();
     
   
 }
@@ -50,7 +50,7 @@ const remove= (element) =>{
     }
 
     displayTodos();
-    detectar_swipe();
+    detectar_gesto();
 }
 
 //función que cambia el atributo done de la tarea
@@ -63,15 +63,15 @@ const toggleDone = (element) => {
         todos[index].done = !todos[index].done;
     }
     displayTodos();
-    detectar_swipe();
+    detectar_gesto();
 }
 
 
 
  
 
-
-function detectar_swipe(){
+// funcion que detecta los gestos
+function detectar_gesto(){
     const items = document.querySelectorAll("td");
 
     items.forEach(item => {
@@ -137,7 +137,7 @@ function displayTodos() {
 }
 
 
-
+// funciones para añadir y eliminar los modales de tarea completada y tarea eliminada
 function modal_eliminar(){
     let modal_content = document.getElementById("modal-content");
     let modal_container = document.getElementById("modal-container");
