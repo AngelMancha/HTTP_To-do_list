@@ -1,6 +1,6 @@
 [{ "id": 1, "title": "Aprender JavaScript", "done": true },
   { "id": 2, "title": "Terminar los ejercicios", "done": false },
-  { "id": 3, "title": "Hacer 100 sentadillas", "done": true },
+  { "id": 3, "title": "Hacer 100 sentadillas", "done": false },
   { "id": 4, "title": "Aprobar este ejercicio", "done": true },
   { "id": 5, "title" :"Pensar idea para TFG", "done" : false }
 ]
