@@ -83,7 +83,8 @@ function detectar_swipe(){
         timer = setInterval(() => {
             if (Date.now() - startTime >= TIME_THRESHOLD) {
                 toggleDone(e.target);
-                //vibrar(100);
+                setTimeout(function(){ modal_done(); }, 1000);
+                setTimeout(function(){ modal_off(); }, 1000);
                 navigator.vibrate(100);
                 clearInterval(timer);
             }
@@ -103,7 +104,7 @@ function detectar_swipe(){
         clearInterval(timer);
         if (endTime - startTime < TIME_THRESHOLD && endX - startX > SPACE_THRESHOLD) {
             remove(e.target);
-            modal_on();
+            setTimeout(function(){ modal_eliminar(); }, 1000);
             setTimeout(function(){ modal_off(); }, 1000);
             navigator.vibrate(300);
         }
@@ -136,19 +137,35 @@ function displayTodos() {
 }
 
 
-
-function modal_on(){
+function modal_eliminar(){
     let modal_content = document.getElementById("modal-content");
     let modal_container = document.getElementById("modal-container");
+    modal_content.classList.add("modal_eliminar");
     modal_container.style.display = "block";
     modal_content.style.display = "block";
+    modal_content.innerHTML="Tarea eliminada";
 }
+
+function modal_done(){
+    let modal_content = document.getElementById("modal-content");
+    let modal_container = document.getElementById("modal-container");
+    modal_content.classList.add("modal_done");
+    modal_container.style.display = "block";
+    modal_content.style.display = "block";
+    modal_content.innerHTML=" ✓ ";
+}
+
 
 function modal_off(){
     let modal_content = document.getElementById("modal-content");
     let modal_container = document.getElementById("modal-container");
     modal_container.style.display = "none";
+    modal_content.style.display = "none";
+    modal_content.classList.remove("modal_done");
+    modal_content.classList.remove("modal_eliminar");
+
 }
+
 
 //lista de tareas
 let todos = [];
