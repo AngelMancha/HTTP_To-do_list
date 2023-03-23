@@ -6,6 +6,7 @@ const TIME_THRESHOLD= 200;
 const SPACE_THRESHOLD = 100;
 
 
+
 //función que carga los datos del json a la variable todos
 const loadTasks =() => {  
     fetch('/tasks/get')
@@ -22,6 +23,21 @@ const loadTasks =() => {
     
 }
 
+//Función que guarda los datos de la variable todos en el json
+const saveTasks = () => {
+    fetch('/tasks/save', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(todos, null, 2)
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(err => console.log(err));
+}
+  
+
 //función que crea una tarea
 const add = () => {
     let newTodo = document.getElementById("input_tarea");
@@ -35,7 +51,7 @@ const add = () => {
 
     displayTodos();
     detectar_gesto();
-    
+    saveTasks();
   
 }
 
@@ -51,6 +67,7 @@ const remove= (element) =>{
 
     displayTodos();
     detectar_gesto();
+    saveTasks();
 }
 
 //función que cambia el atributo done de la tarea
@@ -64,6 +81,7 @@ const toggleDone = (element) => {
     }
     displayTodos();
     detectar_gesto();
+    saveTasks();
 }
 
 
@@ -172,6 +190,7 @@ function modal_off(){
     modal_content.classList.remove("modal_eliminar");
 
 }
+
 
 
 //lista de tareas
