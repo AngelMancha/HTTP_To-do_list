@@ -19,7 +19,7 @@ const sendResponse = (response, content, contentType) => {
 
 const handleRequest = async (request, response) => {
   const url = request.url;
-  console.log(`Received ${request.method} request to ${url}`);
+  
 
   if(request.method === "GET"){
     let content;
@@ -52,7 +52,7 @@ const handleRequest = async (request, response) => {
      sendResponse(response,
        content, contentType);
   } else if(request.method === "POST" && url === "/tasks/save") {
-    console.log('Received POST request to /tasks/save');
+    
     let body = '';
     request.on('data', chunk => {
       body += chunk.toString();
@@ -64,7 +64,7 @@ const handleRequest = async (request, response) => {
       });
     });
   } else{
-     console.log(`Received unhandled ${request.method} request to ${url}`);
+     
      response.writeHead(405, {"Content-Type": "text/html"});
      response.write(`M&eacutetodo ${request.method} no permitido!\r\n`);
   }
