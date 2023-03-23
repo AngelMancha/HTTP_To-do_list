@@ -7,15 +7,15 @@ const SPACE_THRESHOLD = 100;
 
 
 
-//función que carga los datos del json a la variable todos
+//función que carga los datos del json a la variable lista_tareas
 const loadTasks =() => {  
     fetch('/tasks/get')
     .then(function(response) {
         return response.json();
     }).then(function(data) {
         console.log(data);
-        todos = data;
-        displayTodos();
+        lista_tareas = data;
+        displaylista_tareas();
         detectar_gesto();
     }).catch(function(err) {
         console.log(err);
@@ -23,14 +23,14 @@ const loadTasks =() => {
     
 }
 
-//Función que guarda los datos de la variable todos en el json
+//Función que guarda los datos de la variable lista_tareas en el json
 const saveTasks = () => {
     fetch('/tasks/save', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(todos, null, 2)
+        body: JSON.stringify(lista_tareas, null, 2)
     })
     .then(response => response.json())
     .then(data => console.log(data))
@@ -45,11 +45,11 @@ const add = () => {
     if (newTodo.value === '') {
         return;
     }
-    todos.push({ "id": todos.length + 1, "title": newTodo.value, "done": false });
+    lista_tareas.push({ "id": lista_tareas.length + 1, "title": newTodo.value, "done": false });
 
     newTodo.value = '';
 
-    displayTodos();
+    displaylista_tareas();
     detectar_gesto();
     saveTasks();
   
@@ -60,12 +60,12 @@ const remove= (element) =>{
     //nombre de la tarea
     const titulo = element.innerHTML;
     //eliminar tarea de la lista que coincide con el nombre de la tarea
-    const index = todos.findIndex((tarea) => tarea.title === titulo);
+    const index = lista_tareas.findIndex((tarea) => tarea.title === titulo);
     if (index !== -1) {
-    todos.splice(index, 1);
+    lista_tareas.splice(index, 1);
     }
 
-    displayTodos();
+    displaylista_tareas();
     detectar_gesto();
     saveTasks();
 }
@@ -75,11 +75,11 @@ const toggleDone = (element) => {
     //nombre de la tarea
     const titulo = element.innerHTML;
     //cambiar el atributo done de la tarea que coincide con el nombre de la tarea
-    const index = todos.findIndex((tarea) => tarea.title === titulo);
+    const index = lista_tareas.findIndex((tarea) => tarea.title === titulo);
     if (index !== -1) {
-        todos[index].done = !todos[index].done;
+        lista_tareas[index].done = !lista_tareas[index].done;
     }
-    displayTodos();
+    displaylista_tareas();
     detectar_gesto();
     saveTasks();
 }
@@ -135,9 +135,9 @@ function detectar_gesto(){
 
 
 //función que muestra las tareas y cambia el color a las tareas completadas
-function displayTodos() {
+function displaylista_tareas() {
     tablaTareas.innerHTML = '';
-    todos.forEach(function(tarea) {
+    lista_tareas.forEach(function(tarea) {
         const fila = document.createElement('tr');
         const celda = document.createElement('td');
         celda.textContent = tarea.title;
@@ -194,7 +194,7 @@ function modal_off(){
 
 
 //lista de tareas
-let todos = [];
+let lista_tareas = [];
 
 loadTasks();
 
