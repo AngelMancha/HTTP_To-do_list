@@ -20,3 +20,7 @@ This application serves as a to-do list where users interact with it trough gest
 
 The technology that relies behind is based on a **http server** which handles the **json** in which all the tasks are stored and updates it according to the petitions from the user.
 
+# Deployment
+```bash
+node ./index.js
+  ```
