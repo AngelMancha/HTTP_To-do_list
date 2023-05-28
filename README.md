@@ -1,5 +1,5 @@
 ### Ángel José Mancha Núñez
-# HTTP_interactivos_proyecto
+# HTTP To-do List Description
 
 This application serves as a to-do list where users interact with it trough gestures.
 
